@@ -29,9 +29,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset('src/images/logo20.png'),
+        //primary: false,
         backgroundColor: ColorsApp.greenPrimary,
-        title: Text('WhatsApp'),
+        title: Text('WhatsApp', style: TextStyle(fontSize: 20),),
         elevation: 0,
         actions: <Widget>[
           Icon(Icons.search),
@@ -41,10 +41,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           isScrollable:true,
           indicatorColor: Colors.white,
           controller: _tabController,
+          indicatorSize: TabBarIndicatorSize.label,
+          labelStyle: TextStyle(
+            fontSize: 17
+          ),
           tabs: <Widget>[
             Tab(
               icon: Icon(Icons.camera_alt),
-
             ),
             Tab(
               text: 'Conversas',

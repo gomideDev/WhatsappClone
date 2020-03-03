@@ -16,6 +16,13 @@ class _ConversasState extends State<Conversas> {
         backgroundColor: ColorsApp.greenThird,
         onPressed: (){},
       ),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (_, index){
+          return Card(
+          );
+        },
+      ),
     );
   }
 }
