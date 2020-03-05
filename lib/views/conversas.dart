@@ -9,9 +9,9 @@ class Conversas extends StatefulWidget {
 
 class _ConversasState extends State<Conversas> {
 
-  Iterable<Contact> contacts;
+  List<Contact> contacts;
 
-  Future<Iterable<Contact>> getContacts() async{
+  Future<List<Contact>> getContacts() async{
     return await ContactsService.getContacts(withThumbnails: false);
   }
 
@@ -29,13 +29,7 @@ class _ConversasState extends State<Conversas> {
         backgroundColor: ColorsApp.greenThird,
         onPressed: (){},
       ),
-      body: FutureBuilder<Iterable<Contact>>(
-        future: getContacts(),
-        builder: (_, snapshot){
-          if(snapshot.connectionState == ConnectionState.waiting){
-            return Text('Carregando');
-          }else{
-            return ListView.builder(
+      body: ListView.builder(
         itemCount: 10,
         itemBuilder: (_, index){
           return ListTile(
@@ -68,10 +62,7 @@ class _ConversasState extends State<Conversas> {
             ),
           );
         },
-      );
-          }
-        },
-      )
-    );
+      ));
   }
+          
 }

@@ -7,6 +7,7 @@ import 'package:whatsapp/views/conversas.dart';
 import 'package:whatsapp/views/status.dart';
 
 class Home extends StatefulWidget {
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -40,15 +41,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
           CupertinoButton(
             padding: EdgeInsets.all(0),
             child: SizedBox(child: Image.asset('src/images/iconMenu.png', color: Colors.white), height: 25, width: 20,), 
-            onPressed: (){
-
-            }
+            onPressed: (){ }
             )
-            
-          
-          
         ],
-        bottom: TabBar(
+        bottom: TabBar( 
           isScrollable:true,
           indicatorColor: Colors.white,
           controller: _tabController,

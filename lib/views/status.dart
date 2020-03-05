@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp/shared/config/colors.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Status extends StatefulWidget {
   @override
@@ -7,6 +10,17 @@ class Status extends StatefulWidget {
 }
 
 class _StatusState extends State<Status> {
+
+  File _image;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +44,7 @@ class _StatusState extends State<Status> {
           alignment: Alignment.bottomRight,
           child: FloatingActionButton(
             backgroundColor: ColorsApp.greenThird,
-            onPressed: (){},
+            onPressed: getImage,
           child: Icon(Icons.camera_alt),),
           
         ),
