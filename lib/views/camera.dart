@@ -23,7 +23,7 @@ class _CameraState extends State<Camera>{
 
   @override
   void initState() {
-    getImage();
+    //getImage();
     super.initState();
   }
 

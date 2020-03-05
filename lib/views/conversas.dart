@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/shared/config/colors.dart';
 
 class Conversas extends StatefulWidget {
@@ -10,6 +13,16 @@ class Conversas extends StatefulWidget {
 class _ConversasState extends State<Conversas> {
 
   List<Contact> contacts;
+
+  File _image;
+
+  Future getImage() async {
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      _image = image;
+    });
+  }
 
   Future<List<Contact>> getContacts() async{
     return await ContactsService.getContacts(withThumbnails: false);
@@ -29,7 +42,9 @@ class _ConversasState extends State<Conversas> {
         backgroundColor: ColorsApp.greenThird,
         onPressed: (){},
       ),
-      body: ListView.builder(
+      body: GestureDetector(
+        onDoubleTap: getImage,
+        child: ListView.builder(
         itemCount: 10,
         itemBuilder: (_, index){
           return ListTile(
@@ -62,7 +77,8 @@ class _ConversasState extends State<Conversas> {
             ),
           );
         },
-      ));
+      )),
+      );
   }
           
 }
