@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/shared/config/colors.dart';
+import 'package:whatsapp/views/camera.dart';
 import 'package:whatsapp/views/chamadas.dart';
 import 'package:whatsapp/views/conversas.dart';
 import 'package:whatsapp/views/status.dart';
@@ -35,7 +37,16 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
         elevation: 0,
         actions: <Widget>[
           Icon(Icons.search),
-          Icon(Icons.menu)
+          CupertinoButton(
+            padding: EdgeInsets.all(0),
+            child: SizedBox(child: Image.asset('src/images/iconMenu.png', color: Colors.white), height: 25, width: 20,), 
+            onPressed: (){
+
+            }
+            )
+            
+          
+          
         ],
         bottom: TabBar(
           isScrollable:true,
@@ -64,9 +75,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
       body: TabBarView(
         controller: _tabController,
           children: <Widget>[
-            Container(
-            color: Colors.amber,
-          ),
+            Camera(),
           Conversas(),
           Status(),
           Chamadas()

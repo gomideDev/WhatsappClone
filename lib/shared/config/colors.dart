@@ -7,4 +7,5 @@ class ColorsApp{
   static Color greenFourth = Color(0XFFdcf8c6);
   static Color blue = Color(0XFF34b7f1);
   static Color silver = Color(0XFFe0e0e0);
+  static Color silverLight = Color(0XFFf3f3f3);
 }
