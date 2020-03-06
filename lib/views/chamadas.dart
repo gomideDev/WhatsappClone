@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/shared/config/colors.dart';
+import 'package:whatsapp/views/chamada.dart';
 
 class Chamadas extends StatefulWidget {
   @override
@@ -42,7 +43,12 @@ class _ChamadasState extends State<Chamadas> {
               maxRadius: 25,
               child: Icon(Icons.person, color: Colors.white,),
               ),
-            trailing: Icon(Icons.phone, color: ColorsApp.greenPrimary,)
+            trailing: IconButton(
+              icon: Icon(Icons.phone, color: ColorsApp.greenPrimary,),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>Chamada()));
+              },
+            ) 
           );
         },
       ),

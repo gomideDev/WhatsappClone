@@ -57,13 +57,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
               icon: Icon(Icons.camera_alt),
             ),
             Tab(
-              text: 'Conversas',
+              text: 'conversas',
             ),
             Tab(
-              text: 'Status',
+              text: 'status',
             ),
             Tab(
-              text: 'Chamadas',
+              text: 'chamadas',
             )
           ],
         ),

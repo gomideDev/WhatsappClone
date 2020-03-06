@@ -4,6 +4,8 @@ import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/shared/config/colors.dart';
+import 'package:whatsapp/views/contatos.dart';
+import 'package:whatsapp/views/conversa.dart';
 
 class Conversas extends StatefulWidget {
   @override
@@ -40,7 +42,7 @@ class _ConversasState extends State<Conversas> {
         
         child: Icon(Icons.message),
         backgroundColor: ColorsApp.greenThird,
-        onPressed: (){},
+        onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Contatos()));},
       ),
       body: GestureDetector(
         onDoubleTap: getImage,
@@ -48,6 +50,7 @@ class _ConversasState extends State<Conversas> {
         itemCount: 10,
         itemBuilder: (_, index){
           return ListTile(
+            onTap: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Conversa()));},
             title: Text('Nome', style: TextStyle(fontWeight: FontWeight.bold),),
             isThreeLine: false,
             enabled: true,
