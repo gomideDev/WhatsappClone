@@ -7,18 +7,17 @@ import 'package:whatsapp/views/conversas.dart';
 import 'package:whatsapp/views/status.dart';
 
 class Home extends StatefulWidget {
-
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
-
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   TabController _tabController;
 
   @override
   void initState() {
     _tabController = TabController(length: 4, vsync: this);
+    _tabController.index = 1;
     super.initState();
   }
 
@@ -34,24 +33,29 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
       appBar: AppBar(
         //primary: false,
         backgroundColor: ColorsApp.greenPrimary,
-        title: Text('WhatsApp', style: TextStyle(fontSize: 20),),
+        title: Text(
+          'WhatsApp',
+          style: TextStyle(fontSize: 20),
+        ),
         elevation: 0,
         actions: <Widget>[
           Icon(Icons.search),
           CupertinoButton(
-            padding: EdgeInsets.all(0),
-            child: SizedBox(child: Image.asset('src/images/iconMenu.png', color: Colors.white), height: 25, width: 20,), 
-            onPressed: (){ }
-            )
+              padding: EdgeInsets.all(0),
+              child: SizedBox(
+                child:
+                    Image.asset('src/images/iconMenu.png', color: Colors.white),
+                height: 25,
+                width: 20,
+              ),
+              onPressed: () {})
         ],
-        bottom: TabBar( 
-          isScrollable:true,
+        bottom: TabBar(
+          isScrollable: true,
           indicatorColor: Colors.white,
           controller: _tabController,
           indicatorSize: TabBarIndicatorSize.label,
-          labelStyle: TextStyle(
-            fontSize: 17
-          ),
+          labelStyle: TextStyle(fontSize: 17),
           tabs: <Widget>[
             Tab(
               icon: Icon(Icons.camera_alt),
@@ -70,13 +74,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin{
       ),
       body: TabBarView(
         controller: _tabController,
-          children: <Widget>[
-            Camera(),
-          Conversas(),
-          Status(),
-          Chamadas()
-          ],
-      ), 
+        children: <Widget>[Camera(), Conversas(), Status(), Chamadas()],
+      ),
     );
   }
 }
